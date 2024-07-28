@@ -1,0 +1,33 @@
+{% extends 'Users/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <main>
+        <div class="border border-3 border-info main-box p-3">
+            <div class="card-items" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                <div class="card border border-3 border-info p-3">
+                    <div class="header-card d-flex justify-content-between bb-3">
+                        <h2 class="fw-bold">{{ object.typeof.title }}</h2>
+                        <span>Date: {{ object.date|date:'Y-m-d' }}</span>
+                    </div>
+                    <h3 class="fw-bold">$ {{ object.amount }}</h3>
+                    {% if object.description %}
+                        <p>{{ object.description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="button my-3 d-flex">
+            <a class="btn btn-info mx-3 fw-bold" href="{% url 'income-update' object.id %}">
+                Update
+            </a>
+            <a class="btn btn-danger mx-3 fw-bold" href="{% url 'income-delete' object.id %}">
+                Delete
+            </a>
+        </div>
+        <!-- /Buttons -->
+    </main>
+
+{% endblock content %}

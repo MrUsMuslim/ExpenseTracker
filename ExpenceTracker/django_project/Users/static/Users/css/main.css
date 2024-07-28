@@ -1,0 +1,199 @@
+.content {
+    padding: 0 30px;
+}
+
+/* Общие стили для навигации */
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 2.25rem;
+}
+
+.nav-link {
+    color: #495057;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Стили для кнопки-навигатора */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    color: #495057;
+    transition: color 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    color: #007bff;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(73, 80, 87, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Стили для активного пункта меню */
+.nav-item.active .nav-link {
+    color: #007bff;
+    font-weight: 500;
+}
+
+
+.main {
+    background-image: url('../img/image-home.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 500px;
+    width: 95%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.main h2 {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+.list {
+    color: #fff;
+}
+
+
+.main-content {
+    width: 50%;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+@media only screen and (max-width: 992px) {
+    .main-content {
+        width: 100%;
+    }
+
+    .list {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .main {
+        height: 400px;
+    }
+
+    .main h2 {
+        font-size: 2.25rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main {
+        height: 350px;
+    }
+
+    .main h2 {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* Added by muslim */
+.content-section {
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+/* /Added by muslim */
+
+
+/* Income Outcome page styles */
+
+
+/* main {
+    max-width: 60%;
+} */
+
+.card-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.card-items h2,
+.card-items span {
+    font-size: 1.2rem;
+}
+
+.card-items span {
+    color: #212530;
+}
+
+.bb-3 {
+    border-bottom: 2px #212530 solid;
+}
+
+.card-items h3 {
+    font-size: 3.375rem;
+}
+
+.main-box {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.button .btn {
+    color: #000;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 1300px) {
+    main {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .card-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card-items h2,
+    .card-items span {
+        font-size: .8rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card-items h2,
+    .card-items span {
+        font-size: 0.5rem;
+    }
+
+    .card-items h3 {
+        font-size: 3rem;
+    }
+}

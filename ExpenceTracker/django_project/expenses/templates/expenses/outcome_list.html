@@ -1,0 +1,62 @@
+{% extends 'Users/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <main>
+        <div class="border border-3 border-info main-box p-3">
+            <h2>Rescent Activites</h2>
+            <div class="card-items" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                {% for outcome in database_outcome %}
+                    <div class="card border border-3 border-info p-2">
+                        <div class="header-card d-flex justify-content-between bb-3">
+                            <h2 class="fw-bold"><a href="{% url 'outcome-detail' outcome.id %}">{{ outcome.typeof.title }}</a></h2>
+                            <span>Date: {{ outcome.date|date:'Y-m-d' }}</span>
+                        </div>
+                        <h3 class="fw-bold">$ {{ outcome.amount }}</h3>
+                        {% if outcome.description %}
+                            <p>{{ outcome.description }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="button my-3 d-flex justify-content-around">
+            <a class="btn btn-outline-info mx-3 fw-bold" href="{% url 'add-income' %}">
+                Add Income
+            </a>
+            <a class="btn btn-outline-info mx-3 fw-bold" href="{% url 'add-outcome' %}">
+                Add Outcome
+            </a>
+        </div>
+        <!-- /Buttons -->
+    </main>
+
+    <!-- Paginator -->
+    {% if is_paginated %}
+        <!-- First and/or previoues page -->
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <!-- Pages around current page -->
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Last and/or next page -->
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+
+    {% endif %}
+    <!-- /Paginator -->
+
+{% endblock content %}

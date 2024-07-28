@@ -1,0 +1,73 @@
+{% extends 'Users/base.html' %}
+
+{% block content %}
+        <h2>Statistics</h2>
+        <div class="d-flex justify-content-evenly card-items ">
+            <!-- Income -->
+            <div class="card border-info border-3 py-1 px-4">
+                <h4>Income</h4>
+                <div class="main-container">
+                    <h5>Last 7 days</h5>
+                    <p>Total Income: {{ total_7_days_income }}</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: {{ percentage_income }}%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="main-container">
+                    <h5>Last 30 days</h5>
+                    <p>Total Income: {{ total_income_last_30_days }}</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: {{ percentage_income_30 }}%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="main-container">
+                    <h5>Last 365 days</h5>
+                    <p>Total Income: {{ total_income_last_365_days }}</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: {{ percentage_income_365 }}%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Income -->
+
+            <!-- Outcome -->
+            <div class="card border-info border-3 py-1 px-4">
+                <h4>Outcome</h4>
+                <div class="main-container">
+                    <h5>Last 7 days</h5>
+                    <p>Total Outcome: {{ total_7_days_outcome }}</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: {{ percentage_outcome }}%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="main-container">
+                    <h5>Last 30 days</h5>
+                    <p>Total Outcome: {{ total_outcome_last_30_days }}</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: {{ percentage_outcome_30 }}%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="main-container">
+                    <h5>Last 365 days</h5>
+                    <p>Total Outcome: {{ total_outcome_last_365_days }}</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: {{ percentage_outcome_365 }}%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Outcome -->
+        </div>
+
+{% endblock content %}

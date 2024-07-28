@@ -1,0 +1,111 @@
+{% extends 'Users/base.html' %}
+
+
+{% block content %}
+    <!-- Main section -->
+
+    {% if not user.is_authenticated %}
+        
+        <main class="main p-5">
+            <div class="main-content">
+                <h2>Expense Tracker in WebApp</h2>
+                <p class="fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+                    praesentium itaque natus illo optio ipsam sequi ea corporis, incidunt
+                    molestiae sapiente repellendus tempore maxime labore? Soluta sunt
+                    maiores, quo in officia ipsam similique, magnam necessitatibus quaerat
+                    et itaque aut est, repellendus harum unde! Fuga, dolor. Delectus harum
+                    vel reiciendis cupiditate.
+                </p>
+                <a href="{% url 'register' %}" class="text-light fw-bold">Need An Account ?</a>
+            </div>
+        </main>
+
+    {% else %}
+
+    <main>
+        <div class="border border-3 border-info main-box p-3">
+            <h2>Rescent Activites</h2>
+            <div class="card-items" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                <!-- Income -->
+                {% if database_income.0 %}
+                    <div class="card border border-3 border-info p-3">
+                        <div class="header-card d-flex justify-content-between bb-3">
+                            <h2 class="fw-bold"><a href="{% url 'income-detail' database_income.0.id %}">{{ database_income.0.typeof.title }}</a></h2>
+                            <span>Date: {{ database_income.0.date|date:'Y-m-d' }}</span>
+                        </div>
+                        <h3 class="fw-bold">$ {{ database_income.0.amount }}</h3>
+                        <p>
+                            {% if database_income.0.description %}
+                                <p>{{ database_income.0.description }}</p>
+                            {% endif %}
+                        </p>
+                    </div>
+                {% endif %}
+
+                {% if database_income.1 %}
+                <div class="card border border-3 border-info p-3">
+                    <div class="header-card d-flex justify-content-between bb-3">
+                        <h2 class="fw-bold"><a href="{% url 'income-detail' database_income.0.id %}">{{ database_income.1.typeof.title }}</a></h2>
+                        <span>Date: {{ database_income.1.date|date:'Y-m-d' }}</span>
+                    </div>
+                    <h3 class="fw-bold">$ {{ database_income.1.amount }}</h3>
+                    <p>
+                        {% if database_income.1.description %}
+                            <p>{{ database_income.1.description }}</p>
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
+                <!-- /Income -->
+
+                <!-- Outcome -->
+                {% if database_outcome.0 %}
+                <div class="card border border-3 border-info p-3">
+                    <div class="header-card d-flex justify-content-between bb-3">
+                        <h2 class="fw-bold"><a href="{% url 'outcome-detail' database_outcome.0.id %}">{{ database_outcome.0.typeof.title }}</a></h2>
+                        <span>Date: {{ database_outcome.0.date|date:'Y-m-d' }}</span>
+                    </div>
+                    <h3 class="fw-bold">$ {{ database_outcome.0.amount }}</h3>
+                    <p>
+                        {% if database_outcome.0.description %}
+                            <p>{{ database_outcome.0.description }}</p>
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
+
+                {% if database_outcome.1 %}
+                <div class="card border border-3 border-info p-3">
+                    <div class="header-card d-flex justify-content-between bb-3">
+                        <h2 class="fw-bold"><a href="{% url 'outcome-detail' database_outcome.0.id %}">{{ database_outcome.1.typeof.title }}</a></h2>
+                        <span>Date: {{ database_outcome.1.date|date:'Y-m-d' }}</span>
+                    </div>
+                    <h3 class="fw-bold">$ {{ database_outcome.1.amount }}</h3>
+                    <p>
+                        {% if database_outcome.1.description %}
+                            <p>{{ database_outcome.1.description }}</p>
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
+                <!-- /Outcome -->
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="button my-3 d-flex justify-content-around">
+            <a class="btn btn-outline-info mx-3 fw-bold" href="{% url 'add-income' %}">
+                Add Income
+            </a>
+            <a class="btn btn-outline-info mx-3 fw-bold" href="{% url 'add-outcome' %}">
+                Add Outcome
+            </a>
+        </div>
+        <!-- /Buttons -->
+    </main>
+    
+    {% endif %}
+
+    <!-- /Main section -->
+
+{% endblock content %}
